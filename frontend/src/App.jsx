@@ -22,12 +22,27 @@ function App() {
       });
   };
 
+  const createPost = async (postData) => {
+    try {
+      await api.post("/posts", postData);
+
+      fetchPosts();
+
+      return { success: true };
+    } catch (error) {
+      return {
+        success: false,
+        errors: error.response?.data?.errors || {},
+      };
+    }
+  };
+
   return (
     <>
       <Navbar />
 
       <div style={{ width: "80%", margin: "20px auto" }}>
-        <PostForm />
+        <PostForm createPost={createPost} />
 
         <PostList posts={posts} />
       </div>

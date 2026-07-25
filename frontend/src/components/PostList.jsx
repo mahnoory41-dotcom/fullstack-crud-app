@@ -1,22 +1,43 @@
 import PostCard from "./PostCard";
 
-function PostList({ posts }) {
-  return (
-    <>
-      <h2>Posts</h2>
+function PostList({
 
-      {posts.length === 0 ? (
-        <p>No posts found.</p>
-      ) : (
-        posts.map((post) => (
-          <PostCard
-            key={post.id}
-            post={post}
-          />
-        ))
-      )}
-    </>
-  );
+posts,
+
+setEditingPost,
+
+deletePost
+
+}){
+
+return(
+
+<>
+
+{
+
+posts.map((post)=>(
+
+<PostCard
+
+key={post.id}
+
+post={post}
+
+setEditingPost={setEditingPost}
+
+deletePost={deletePost}
+
+/>
+
+))
+
+}
+
+</>
+
+);
+
 }
 
 export default PostList;

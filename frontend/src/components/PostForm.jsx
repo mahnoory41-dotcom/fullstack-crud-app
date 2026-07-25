@@ -1,22 +1,71 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function PostForm({ createPost }) {
+function PostForm({
+
+createPost,
+
+updatePost,
+
+editingPost
+
+}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState(true);
 
   const [errors, setErrors] = useState({});
+  useEffect(()=>{
+
+if(editingPost){
+
+setTitle(editingPost.title);
+
+setDescription(editingPost.description);
+
+setStatus(Boolean(editingPost.status));
+
+}
+
+},[editingPost]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setErrors({});
 
-    const result = await createPost({
-      title,
-      description,
-      status,
-    });
+  let result;
+
+if(editingPost){
+
+result=await updatePost(
+
+editingPost.id,
+
+{
+
+title,
+
+description,
+
+status
+
+}
+
+);
+
+}else{
+
+result=await createPost({
+
+title,
+
+description,
+
+status
+
+});
+
+}
 
     if (result.success) {
       setTitle("");
@@ -75,7 +124,7 @@ function PostForm({ createPost }) {
         <br />
 
         <button type="submit">
-          Save Post
+          {editingPost ? "Update Post" : "Save Post"}
         </button>
       </form>
 

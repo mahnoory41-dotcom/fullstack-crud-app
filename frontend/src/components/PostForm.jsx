@@ -1,87 +1,66 @@
 import { useState, useEffect } from "react";
-
+import "./PostForm.css";
 function PostForm({
-
-createPost,
-
-updatePost,
-
-editingPost
-
+  createPost,
+  updatePost,
+  editingPost,
+  setEditingPost,
 }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState(true);
 
   const [errors, setErrors] = useState({});
-  useEffect(()=>{
 
-if(editingPost){
-
-setTitle(editingPost.title);
-
-setDescription(editingPost.description);
-
-setStatus(Boolean(editingPost.status));
-
-}
-
-},[editingPost]);
+  useEffect(() => {
+    if (editingPost) {
+      setTitle(editingPost.title);
+      setDescription(editingPost.description);
+      setStatus(Boolean(editingPost.status));
+    }
+  }, [editingPost]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setErrors({});
 
-  let result;
+    let result;
 
-if(editingPost){
-
-result=await updatePost(
-
-editingPost.id,
-
-{
-
-title,
-
-description,
-
-status
-
-}
-
-);
-
-}else{
-
-result=await createPost({
-
-title,
-
-description,
-
-status
-
-});
-
-}
+    if (editingPost) {
+      result = await updatePost(editingPost.id, {
+        title,
+        description,
+        status,
+      });
+    } else {
+      result = await createPost({
+        title,
+        description,
+        status,
+      });
+    }
 
     if (result.success) {
       setTitle("");
       setDescription("");
       setStatus(true);
+
+      setEditingPost(null);
     } else {
       setErrors(result.errors);
     }
   };
 
   return (
-    <>
-      <h2>Add Post</h2>
+   <div className="form-card">
+      <h2 className="form-title">
+        {editingPost ? "Edit Post" : "Add Post"}
+      </h2>
 
       <form onSubmit={handleSubmit}>
         <input
+        className="form-control"
           type="text"
           placeholder="Enter title"
           value={title}
@@ -91,30 +70,40 @@ status
         <br />
 
         {errors.title && (
-          <p style={{ color: "red" }}>{errors.title[0]}</p>
+          <p style={{ color: "red" }}>
+            {errors.title[0]}
+          </p>
         )}
 
         <br />
 
         <textarea
+        className="form-control"
           placeholder="Description"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) =>
+            setDescription(e.target.value)
+          }
         />
 
         <br />
 
         {errors.description && (
-          <p style={{ color: "red" }}>{errors.description[0]}</p>
+          <p style={{ color: "red" }}>
+            {errors.description[0]}
+          </p>
         )}
 
         <br />
 
         <label>
           <input
+          className="checkbox"
             type="checkbox"
             checked={status}
-            onChange={(e) => setStatus(e.target.checked)}
+            onChange={(e) =>
+              setStatus(e.target.checked)
+            }
           />
 
           Active
@@ -123,13 +112,33 @@ status
         <br />
         <br />
 
-        <button type="submit">
-          {editingPost ? "Update Post" : "Save Post"}
+        <button type="submit" className="btn btn-primary">
+          {editingPost
+            ? "Update Post"
+            : "Save Post"}
         </button>
+
+        {editingPost && (
+          <button className="btn btn-secondary"
+            type="button"
+            style={{
+              marginLeft: "10px",
+            }}
+            onClick={() => {
+              setEditingPost(null);
+
+              setTitle("");
+              setDescription("");
+              setStatus(true);
+            }}
+          >
+            Cancel
+          </button>
+        )}
       </form>
 
       <hr />
-    </>
+   </div>
   );
 }
 

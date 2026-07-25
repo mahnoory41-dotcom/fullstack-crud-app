@@ -1,0 +1,36 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+background:#f5f7fb;
+}
+
+.container{
+
+max-width:900px;
+
+margin:auto;
+
+padding:30px 20px;
+
+}
+
+.success-message{
+
+background:#d1fae5;
+
+color:#065f46;
+
+padding:12px;
+
+border-radius:8px;
+
+margin-bottom:20px;
+
+font-weight:bold;
+
+}

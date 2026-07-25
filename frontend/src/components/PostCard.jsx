@@ -1,69 +1,37 @@
+import "./PostCard.css";
 function PostCard({
+  post,
+  setEditingPost,
+  deletePost,
+}) {
+  return (
+    <div className="card" className="actions">
+      <h3>{post.title}</h3>
 
-post,
+      <p>{post.description}</p>
 
-setEditingPost,
+      <p>
+        <strong>Status:</strong>{" "}
+        {post.status ? "Active" : "Inactive"}
+      </p>
 
-deletePost
+      <button className="btn edit"
+        onClick={() => setEditingPost(post)}
+      >
+        Edit
+      </button>
 
-}){
-
-return(
-
-<div
-
-style={{
-
-border:"1px solid #ddd",
-
-padding:"15px",
-
-marginBottom:"15px",
-
-borderRadius:"8px"
-
-}}
-
->
-
-<h3>{post.title}</h3>
-
-<p>{post.description}</p>
-
-<p>
-
-Status:
-
-{post.status ? " Active":" Inactive"}
-
-</p>
-
-<button
-
-onClick={()=>setEditingPost(post)}
-
->
-
-Edit
-
-</button>
-
-<button
-
-style={{marginLeft:"10px"}}
-
-onClick={()=>deletePost(post.id)}
-
->
-
-Delete
-
-</button>
-
-</div>
-
-);
-
+      <button
+      className="btn delete"
+        onClick={() => deletePost(post.id)}
+        style={{
+          marginLeft: "10px",
+        }}
+      >
+        Delete
+      </button>
+    </div>
+  );
 }
 
 export default PostCard;

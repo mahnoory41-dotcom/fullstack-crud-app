@@ -1,14 +1,7 @@
+import "./Navbar.css";
 function Navbar() {
   return (
-    <nav
-      style={{
-        background: "#2563eb",
-        color: "white",
-        padding: "15px",
-        fontSize: "22px",
-        fontWeight: "bold",
-      }}
-    >
+    <nav className="navbar">
       Laravel + React CRUD
     </nav>
   );

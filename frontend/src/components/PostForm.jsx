@@ -9,7 +9,7 @@ function PostForm({
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState(true);
-
+const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function PostForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+     setLoading(true);
     setErrors({});
 
     let result;
@@ -50,6 +50,7 @@ function PostForm({
     } else {
       setErrors(result.errors);
     }
+    setLoading(false);
   };
 
   return (
@@ -112,11 +113,17 @@ function PostForm({
         <br />
         <br />
 
-        <button type="submit" className="btn btn-primary">
-          {editingPost
-            ? "Update Post"
-            : "Save Post"}
-        </button>
+        <button
+    type="submit"
+    disabled={loading}
+    className="btn btn-primary"
+>
+    {loading
+        ? "Saving..."
+        : editingPost
+        ? "Update Post"
+        : "Save Post"}
+</button>
 
         {editingPost && (
           <button className="btn btn-secondary"

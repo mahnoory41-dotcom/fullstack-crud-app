@@ -5,7 +5,7 @@ function PostCard({
   deletePost,
 }) {
   return (
-    <div className="card" className="actions">
+    <div className="card actions">
       <h3>{post.title}</h3>
 
       <p>{post.description}</p>

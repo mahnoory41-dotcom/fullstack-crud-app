@@ -71,7 +71,9 @@ function App() {
   };
 
   const deletePost = async (id) => {
-    if (!window.confirm("Delete this post?")) return;
+    const confirmed = window.confirm("Are you sure you want to delete this post?");
+
+if (!confirmed) return;
 
     try {
       await api.delete(`/posts/${id}`);

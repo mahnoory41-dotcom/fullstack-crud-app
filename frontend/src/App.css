@@ -34,3 +34,28 @@ margin-bottom:20px;
 font-weight:bold;
 
 }
+@media (max-width:768px){
+
+.container{
+width:95%;
+}
+
+form{
+padding:15px;
+}
+
+.card{
+width:100%;
+}
+
+button{
+width:100%;
+margin-top:10px;
+}
+
+input,
+textarea{
+width:100%;
+}
+
+}

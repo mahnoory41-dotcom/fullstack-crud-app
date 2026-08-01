@@ -32,8 +32,10 @@ class PostController extends Controller
             'description' => 'required',
             'status' => 'required|boolean'
         ]);
+$validated['user_id'] = request()->user()->id;
+$post = Post::create($validated);
 
-        $post = Post::create($validated);
+return response()->json($post, 201);
 
         return response()->json([
             'success' => true,
@@ -74,6 +76,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        if ($post->user_id !== auth()->id()) {
+
+    return response()->json([
+        'message' => 'Forbidden'
+    ],403);
+
+}
         $validated = $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
@@ -94,6 +103,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if ($post->user_id !== auth()->id()) {
+
+    return response()->json([
+        'message' => 'Forbidden'
+    ],403);
+
+}
         $post->delete();
 
         return response()->json([

@@ -1,23 +1,55 @@
-# Full Stack CRUD Application
+# Full Stack CRUD Application with Authentication
 
-A Full Stack CRUD application built with Laravel 12, React (Vite), MySQL, and Axios.
+A Full Stack CRUD application built with Laravel 12, React (Vite), MySQL, Laravel Sanctum, Axios, and React Router.
 
 ---
 
-## Technologies Used
+# Technologies Used
 
-### Backend
+## Backend
+
 - Laravel 12
 - PHP
 - MySQL
+- Laravel Sanctum
 
-### Frontend
+## Frontend
+
 - React (Vite)
+- React Router DOM
 - Axios
 
 ---
 
-## Backend Setup
+# Features
+
+## Authentication
+
+- User Registration
+- User Login
+- User Logout
+- Laravel Sanctum Authentication
+- Protected Routes
+- Token-based Authentication
+- Auto Logout on Invalid Token
+
+## Authorization
+
+- Each user can only manage their own posts
+- Unauthorized update/delete returns 403 Forbidden
+- Edit/Delete buttons visible only for the owner
+
+## CRUD
+
+- Create Post
+- View Posts
+- Update Post
+- Delete Post
+- Laravel Request Validation
+
+---
+
+# Backend Setup
 
 ```bash
 cd backend
@@ -28,7 +60,7 @@ php artisan migrate
 php artisan serve
 ```
 
-Backend runs at:
+Backend URL
 
 ```
 http://127.0.0.1:8000
@@ -36,7 +68,7 @@ http://127.0.0.1:8000
 
 ---
 
-## Frontend Setup
+# Frontend Setup
 
 ```bash
 cd frontend
@@ -44,7 +76,7 @@ npm install
 npm run dev
 ```
 
-Frontend runs at:
+Frontend URL
 
 ```
 http://localhost:5173
@@ -52,7 +84,7 @@ http://localhost:5173
 
 ---
 
-## Frontend Environment Variable
+# Frontend Environment Variable
 
 Create a `.env` file inside the frontend folder.
 
@@ -62,22 +94,20 @@ VITE_API_URL=http://127.0.0.1:8000/api
 
 ---
 
-## Features
+# API Endpoints
 
-- Create Post
-- View Posts
-- Update Post
-- Delete Post
-- Laravel Validation
-- Axios API Integration
-- Responsive UI
-
----
-
-## API Endpoints
+## Public
 
 | Method | Endpoint |
 |--------|----------|
+| POST | /api/register |
+| POST | /api/login |
+
+## Protected (Sanctum)
+
+| Method | Endpoint |
+|--------|----------|
+| POST | /api/logout |
 | GET | /api/posts |
 | GET | /api/posts/{id} |
 | POST | /api/posts |
@@ -86,6 +116,22 @@ VITE_API_URL=http://127.0.0.1:8000/api
 
 ---
 
-## Author
+# Assignment Features Completed
+
+- Laravel Sanctum Authentication
+- User Registration
+- User Login
+- User Logout
+- Protected API Routes
+- React Authentication Context
+- Axios Interceptor
+- Protected Frontend Routes
+- Ownership Authorization
+- 403 Forbidden Handling
+- Automatic Logout on Invalid Token
+
+---
+
+# Author
 
 Mahnoor Yasir

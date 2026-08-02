@@ -27,21 +27,20 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        $validated = $request->validate([
+          $validated = $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
             'status' => 'required|boolean'
-        ]);
-$validated['user_id'] = request()->user()->id;
-$post = Post::create($validated);
+          ]);
+          $validated['user_id'] = request()->user()->id;
 
-return response()->json($post, 201);
+         $post = Post::create($validated);
 
-        return response()->json([
+          return response()->json([
             'success' => true,
             'message' => 'Post created successfully',
             'data' => $post
-        ], 201);
+          ], 201);
     }
 
     /**

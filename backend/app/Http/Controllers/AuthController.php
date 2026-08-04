@@ -21,7 +21,8 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => Hash::make($validated['password'])
+            'password' => Hash::make($validated['password']),
+            'role' => 'user',
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -42,10 +43,9 @@ class AuthController extends Controller
         ]);
 
         if (!Auth::attempt($credentials)) {
-
             return response()->json([
                 'message' => 'Invalid email or password'
-            ],401);
+            ], 401);
         }
 
         $user = Auth::user();

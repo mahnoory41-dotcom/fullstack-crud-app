@@ -21,8 +21,11 @@ function PostCard({
         {post.status ? "Active" : "Inactive"}
       </p>
 
-      {user && post.user_id === user.id && (
-        <>
+{user &&
+(
+user.role === "admin" ||
+post.user_id === user.id
+) && (        <>
           <button
             className="btn edit"
             onClick={() => setEditingPost(post)}

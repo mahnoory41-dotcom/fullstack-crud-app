@@ -40,3 +40,31 @@ width:100%;
 }
 
 }
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+}
+
+.navbar-user{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.role{
+padding:5px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+color:white;
+}
+
+.admin{
+background:#dc2626;
+}
+
+.user{
+background:#2563eb;
+}

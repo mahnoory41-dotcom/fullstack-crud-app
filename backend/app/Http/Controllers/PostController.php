@@ -75,8 +75,10 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        if ($post->user_id !== auth()->id()) {
-
+if (
+    auth()->user()->role !== 'admin' &&
+    $post->user_id !== auth()->id()
+) {
     return response()->json([
         'message' => 'Forbidden'
     ],403);
@@ -102,8 +104,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if ($post->user_id !== auth()->id()) {
-
+if (
+    auth()->user()->role !== 'admin' &&
+    $post->user_id !== auth()->id()
+) {
     return response()->json([
         'message' => 'Forbidden'
     ],403);

@@ -34,11 +34,23 @@ function Login() {
       login(response.data.user, response.data.token);
 
       navigate("/");
-    } catch (err) {
-      setError(
-        err.response?.data?.message || "Login failed."
-      );
-    } finally {
+    } 
+    catch (error) {
+
+    if (error.response?.status === 429) {
+
+        setError(
+            "Too many login attempts. Please try again after one minute."
+        );
+
+        return;
+    }
+
+    setError(
+        error.response?.data?.message ||
+        "Invalid email or password."
+    );
+} finally {
       setLoading(false);
     }
   };

@@ -1,86 +1,84 @@
 .card{
-
-background:white;
-
-padding:20px;
-
-border-radius:12px;
-
-margin-bottom:20px;
-
-box-shadow:0 3px 12px rgba(0,0,0,.08);
-
-transition:.3s;
-
+    background:#fff;
+    border-radius:16px;
+    padding:22px;
+    margin-bottom:22px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    transition:.25s;
 }
 
 .card:hover{
-
-transform:translateY(-3px);
-
+    transform:translateY(-4px);
+    box-shadow:0 14px 32px rgba(0,0,0,.08);
 }
 
 .card h3{
-
-margin-bottom:10px;
-
-color:#2563eb;
-
+    color:#2563eb;
+    font-size:22px;
+    margin-bottom:12px;
 }
 
 .card p{
-
-margin-bottom:10px;
-
-color:#555;
-
+    color:#4b5563;
+    margin-bottom:12px;
+    line-height:1.7;
 }
 
 .actions{
-
-margin-top:15px;
-
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
 
 .edit{
+    background:#2563eb;
+    color:#fff;
+}
 
-background:#2563eb;
-
-color:white;
-
+.edit:hover{
+    background:#1d4ed8;
 }
 
 .delete{
-
-background:#ef4444;
-
-color:white;
-
-margin-left:10px;
-
-}
-@media (max-width:768px){
-
-.container{
-width:95%;
+    background:#dc2626;
+    color:#fff;
 }
 
-form{
-padding:15px;
+.delete:hover{
+    background:#b91c1c;
 }
 
-.card{
-width:100%;
+.status-active{
+    display:inline-block;
+    background:#dcfce7;
+    color:#166534;
+    padding:5px 12px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
 }
 
-button{
-width:100%;
-margin-top:10px;
+.status-inactive{
+    display:inline-block;
+    background:#fef3c7;
+    color:#92400e;
+    padding:5px 12px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
 }
 
-input,
-textarea{
-width:100%;
+@media(max-width:768px){
+
+.actions{
+    flex-direction:column;
+}
+
+.edit,
+.delete{
+    width:100%;
 }
 
 }

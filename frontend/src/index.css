@@ -1,62 +1,119 @@
-@media(max-width:768px){
-
-.container{
-
-padding:15px;
-
+html{
+    scroll-behavior:smooth;
 }
 
-.form-control{
-
-font-size:15px;
-
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
-.btn{
-
-width:100%;
-
-margin-bottom:10px;
-
+button,
+input,
+textarea{
+    font-family:inherit;
 }
 
-.delete{
-
-margin-left:0;
-
+img{
+    max-width:100%;
 }
 
 .actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
 
-display:flex;
+.status-active{
+    display:inline-block;
+    background:#dcfce7;
+    color:#166534;
+    padding:4px 12px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
 
-flex-direction:column;
+.status-inactive{
+    display:inline-block;
+    background:#fef3c7;
+    color:#92400e;
+    padding:4px 12px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
 
+/* Tablet */
+
+@media (max-width:992px){
+
+.container{
+    max-width:95%;
 }
 
 }
+
+/* Mobile */
+
 @media (max-width:768px){
 
 .container{
-width:95%;
-}
-
-form{
-padding:15px;
+    width:100%;
+    padding:20px 15px;
 }
 
 .card{
-width:100%;
+    padding:18px;
 }
 
-button{
-width:100%;
-margin-top:10px;
+form{
+    padding:20px;
+}
+
+.actions{
+    flex-direction:column;
+    align-items:stretch;
+}
+
+.btn{
+    width:100%;
+}
+
+.edit,
+.delete{
+    margin-left:0;
 }
 
 input,
 textarea{
-width:100%;
+    font-size:14px;
+}
+
+}
+
+/* Small Mobile */
+
+@media (max-width:480px){
+
+.container{
+    padding:15px;
+}
+
+h1{
+    font-size:26px;
+}
+
+h2{
+    font-size:22px;
+}
+
+h3{
+    font-size:18px;
+}
+
+body{
+    font-size:14px;
 }
 
 }

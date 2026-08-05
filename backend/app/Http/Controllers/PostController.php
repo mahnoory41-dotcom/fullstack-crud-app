@@ -27,19 +27,20 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        $validated = $request->validate([
+          $validated = $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
             'status' => 'required|boolean'
-        ]);
+          ]);
+          $validated['user_id'] = request()->user()->id;
 
-        $post = Post::create($validated);
+         $post = Post::create($validated);
 
-        return response()->json([
+          return response()->json([
             'success' => true,
             'message' => 'Post created successfully',
             'data' => $post
-        ], 201);
+          ], 201);
     }
 
     /**
@@ -74,6 +75,15 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+if (
+    auth()->user()->role !== 'admin' &&
+    $post->user_id !== auth()->id()
+) {
+    return response()->json([
+        'message' => 'Forbidden'
+    ],403);
+
+}
         $validated = $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
@@ -94,6 +104,15 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+if (
+    auth()->user()->role !== 'admin' &&
+    $post->user_id !== auth()->id()
+) {
+    return response()->json([
+        'message' => 'Forbidden'
+    ],403);
+
+}
         $post->delete();
 
         return response()->json([

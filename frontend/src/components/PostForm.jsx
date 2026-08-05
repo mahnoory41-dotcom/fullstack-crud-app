@@ -97,19 +97,18 @@ const [loading, setLoading] = useState(false);
 
         <br />
 
-        <label>
+        
+          <div className="checkbox">
           <input
-          className="checkbox"
             type="checkbox"
             checked={status}
             onChange={(e) =>
               setStatus(e.target.checked)
             }
           />
-
-          Active
+<label htmlFor="status">          Active
         </label>
-
+          </div>
         <br />
         <br />
 

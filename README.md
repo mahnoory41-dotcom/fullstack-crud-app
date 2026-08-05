@@ -1,60 +1,124 @@
 # Full Stack CRUD Application
 
-A Full Stack CRUD application built with Laravel 12, React (Vite), MySQL, and Axios.
+A professional Full Stack CRUD application built with Laravel 12, React (Vite), MySQL and Laravel Sanctum Authentication.
 
 ---
 
-## Technologies Used
+# Technologies
 
-### Backend
+## Backend
+
 - Laravel 12
 - PHP
+- Laravel Sanctum
 - MySQL
 
-### Frontend
+## Frontend
+
 - React (Vite)
+- React Router
 - Axios
+- CSS3
 
 ---
 
-## Backend Setup
+# Features
+
+## Authentication
+
+- User Registration
+- User Login
+- User Logout
+- Laravel Sanctum Authentication
+- Protected Routes
+- Axios Token Interceptor
+- Auto Redirect
+- Auto Logout on Invalid Token
+
+---
+
+## Posts
+
+- Create Posts
+- Read Posts
+- Update Posts
+- Delete Posts
+- Validation
+- User Ownership Protection
+
+---
+
+## Role Based Access
+
+- Admin Role
+- User Role
+- Admin can manage all posts
+- User can manage only own posts
+
+---
+
+## Password Reset
+
+- Forgot Password
+- Reset Password
+- Mailtrap Email Integration
+
+---
+
+## Security
+
+- Laravel Sanctum
+- Login Rate Limiting
+- Protected API Routes
+- HTTP 403 Authorization
+- HTTP 429 Rate Limiting
+
+---
+
+## Automated Testing
+
+- Guest cannot create posts
+- User cannot delete another user's posts
+
+Run tests
+
+```bash
+php artisan test
+```
+
+---
+
+# Backend Setup
 
 ```bash
 cd backend
+
 composer install
+
 cp .env.example .env
+
 php artisan key:generate
+
 php artisan migrate
+
 php artisan serve
 ```
 
-Backend runs at:
-
-```
-http://127.0.0.1:8000
-```
-
 ---
 
-## Frontend Setup
+# Frontend Setup
 
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
-```
-
-Frontend runs at:
-
-```
-http://localhost:5173
 ```
 
 ---
 
-## Frontend Environment Variable
-
-Create a `.env` file inside the frontend folder.
+# Frontend Environment
 
 ```env
 VITE_API_URL=http://127.0.0.1:8000/api
@@ -62,30 +126,24 @@ VITE_API_URL=http://127.0.0.1:8000/api
 
 ---
 
-## Features
+# Demo Features
 
-- Create Post
-- View Posts
-- Update Post
-- Delete Post
-- Laravel Validation
-- Axios API Integration
+- Register
+- Login
+- Create Posts
+- Update Posts
+- Delete Posts
+- Forgot Password
+- Reset Password
+- Role Based Authorization
+- Rate Limiting
+- Feature Tests
 - Responsive UI
 
 ---
 
-## API Endpoints
-
-| Method | Endpoint |
-|--------|----------|
-| GET | /api/posts |
-| GET | /api/posts/{id} |
-| POST | /api/posts |
-| PUT | /api/posts/{id} |
-| DELETE | /api/posts/{id} |
-
----
-
-## Author
+# Author
 
 Mahnoor Yasir
+BS Computer Science
+Quaid-i-Azam University

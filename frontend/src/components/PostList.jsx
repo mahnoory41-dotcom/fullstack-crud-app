@@ -7,6 +7,7 @@ function PostList({
   deletePost,
 }) {
   if (loading) {
+    
     return <h2>Loading...</h2>;
   }
 

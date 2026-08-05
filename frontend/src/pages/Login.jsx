@@ -83,7 +83,11 @@ function Login() {
           {loading ? "Logging in..." : "Login"}
 
         </button>
-
+          <p style={{ marginTop: "15px" }}>
+           <Link to="/forgot-password">
+           Forgot Password?
+           </Link>
+</p>
       </form>
 
       <br />

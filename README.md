@@ -1,23 +1,24 @@
-# Full Stack CRUD Application with Authentication
+# Full Stack CRUD Application
 
-A Full Stack CRUD application built with Laravel 12, React (Vite), MySQL, Laravel Sanctum, Axios, and React Router.
+A professional Full Stack CRUD application built with Laravel 12, React (Vite), MySQL and Laravel Sanctum Authentication.
 
 ---
 
-# Technologies Used
+# Technologies
 
 ## Backend
 
 - Laravel 12
 - PHP
-- MySQL
 - Laravel Sanctum
+- MySQL
 
 ## Frontend
 
 - React (Vite)
-- React Router DOM
+- React Router
 - Axios
+- CSS3
 
 ---
 
@@ -30,22 +31,60 @@ A Full Stack CRUD application built with Laravel 12, React (Vite), MySQL, Larave
 - User Logout
 - Laravel Sanctum Authentication
 - Protected Routes
-- Token-based Authentication
+- Axios Token Interceptor
+- Auto Redirect
 - Auto Logout on Invalid Token
 
-## Authorization
+---
 
-- Each user can only manage their own posts
-- Unauthorized update/delete returns 403 Forbidden
-- Edit/Delete buttons visible only for the owner
+## Posts
 
-## CRUD
+- Create Posts
+- Read Posts
+- Update Posts
+- Delete Posts
+- Validation
+- User Ownership Protection
 
-- Create Post
-- View Posts
-- Update Post
-- Delete Post
-- Laravel Request Validation
+---
+
+## Role Based Access
+
+- Admin Role
+- User Role
+- Admin can manage all posts
+- User can manage only own posts
+
+---
+
+## Password Reset
+
+- Forgot Password
+- Reset Password
+- Mailtrap Email Integration
+
+---
+
+## Security
+
+- Laravel Sanctum
+- Login Rate Limiting
+- Protected API Routes
+- HTTP 403 Authorization
+- HTTP 429 Rate Limiting
+
+---
+
+## Automated Testing
+
+- Guest cannot create posts
+- User cannot delete another user's posts
+
+Run tests
+
+```bash
+php artisan test
+```
 
 ---
 
@@ -53,17 +92,16 @@ A Full Stack CRUD application built with Laravel 12, React (Vite), MySQL, Larave
 
 ```bash
 cd backend
+
 composer install
+
 cp .env.example .env
+
 php artisan key:generate
+
 php artisan migrate
+
 php artisan serve
-```
-
-Backend URL
-
-```
-http://127.0.0.1:8000
 ```
 
 ---
@@ -72,21 +110,15 @@ http://127.0.0.1:8000
 
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
-```
-
-Frontend URL
-
-```
-http://localhost:5173
 ```
 
 ---
 
-# Frontend Environment Variable
-
-Create a `.env` file inside the frontend folder.
+# Frontend Environment
 
 ```env
 VITE_API_URL=http://127.0.0.1:8000/api
@@ -94,44 +126,24 @@ VITE_API_URL=http://127.0.0.1:8000/api
 
 ---
 
-# API Endpoints
+# Demo Features
 
-## Public
-
-| Method | Endpoint |
-|--------|----------|
-| POST | /api/register |
-| POST | /api/login |
-
-## Protected (Sanctum)
-
-| Method | Endpoint |
-|--------|----------|
-| POST | /api/logout |
-| GET | /api/posts |
-| GET | /api/posts/{id} |
-| POST | /api/posts |
-| PUT | /api/posts/{id} |
-| DELETE | /api/posts/{id} |
-
----
-
-# Assignment Features Completed
-
-- Laravel Sanctum Authentication
-- User Registration
-- User Login
-- User Logout
-- Protected API Routes
-- React Authentication Context
-- Axios Interceptor
-- Protected Frontend Routes
-- Ownership Authorization
-- 403 Forbidden Handling
-- Automatic Logout on Invalid Token
+- Register
+- Login
+- Create Posts
+- Update Posts
+- Delete Posts
+- Forgot Password
+- Reset Password
+- Role Based Authorization
+- Rate Limiting
+- Feature Tests
+- Responsive UI
 
 ---
 
 # Author
 
 Mahnoor Yasir
+BS Computer Science
+Quaid-i-Azam University

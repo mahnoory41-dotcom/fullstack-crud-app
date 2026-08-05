@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import api from "../services/api";
-
+import "./Auth.css";
 function ResetPassword() {
   const navigate = useNavigate();
 
@@ -55,12 +55,14 @@ function ResetPassword() {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-links">
 
       <form className="auth-form" onSubmit={handleSubmit}>
 
         <h2>Reset Password</h2>
-
+<p className="subtitle">
+    Choose a strong new password for your account.
+</p>
         {message && <p className="success">{message}</p>}
 
         {error && <p className="error">{error}</p>}

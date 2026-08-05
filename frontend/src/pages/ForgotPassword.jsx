@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../services/api";
-
+import "./Auth.css";
 function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -33,12 +33,14 @@ function ForgotPassword() {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-links">
 
       <form className="auth-form" onSubmit={handleSubmit}>
 
         <h2>Forgot Password</h2>
-
+<p className="subtitle">
+    Enter your email to receive a password reset link.
+</p>
         {message && <p className="success">{message}</p>}
 
         {error && <p className="error">{error}</p>}

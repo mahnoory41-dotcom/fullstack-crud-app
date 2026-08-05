@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import api from "../services/api";
-
+import "./Auth.css";
 function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -56,10 +56,12 @@ function Login() {
   };
 
   return (
-    <div className="container">
+    <div className="auth-links">
 
       <h2>Login</h2>
-
+<p className="subtitle">
+    Welcome back! Please continue to your account.
+</p>
       {error && (
         <p style={{ color: "red" }}>
           {error}

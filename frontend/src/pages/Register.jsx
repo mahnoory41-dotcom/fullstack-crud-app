@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
-
+import "./Auth.css";
 function Register() {
 
   const navigate = useNavigate();
@@ -83,9 +83,12 @@ function Register() {
 
   return (
 
-    <div className="container">
+    <div className="auth-links">
 
       <h2>Register</h2>
+      <p className="subtitle">
+    Create your account to start managing your posts.
+</p>
 
       {error && (
 
